@@ -15,17 +15,17 @@ class Bot:
         
         # Obtém os elementos 
         self._bot.get('https://class.devsamurai.com.br/')
-        self.cursos = self._bot.find_elements('xpath', "//ul//li")
+        self.cursos = self._bot.find_elements('xpath', "//ul/li/a")
 
 
     def run(self):
         try:
             for curso in self.cursos:
-                curso.find_element('xpath', 'a').click()
-                nome_curso = curso.find_element('xpath', 'a').text
+                nome_curso = curso.text
+                curso.click()
                 
                 print(f'Download do curso {nome_curso} iniciado com sucesso.')
-                sleep(5)
+                sleep(1)
             
             print(f'Fim do processamento.')
         except Exception as e:
