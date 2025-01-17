@@ -1,0 +1,1 @@
+python "C:\Users\Elton\Desktop\projeto\main.py" && exit
